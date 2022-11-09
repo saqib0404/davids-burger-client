@@ -8,7 +8,14 @@ const Header = () => {
     const menu = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/blogs'>Blogs</Link></li>
+        {
+            user?.uid &&
+            <>
+                <li className='font-semibold'><Link>My Reviews</Link></li>
+                <li className='font-semibold'><Link>Add Service</Link></li>
+            </>
 
+        }
     </>
 
     const handleLogOut = () => {
@@ -36,7 +43,10 @@ const Header = () => {
             <div className="navbar-end">
                 {
                     user?.uid ?
-                        <li onClick={handleLogOut} className='font-semibold'>Sign Out</li>
+                        <>
+                            <li onClick={handleLogOut} className='font-semibold btn'>Sign Out</li>&nbsp;
+                            <img className='h-12 w-12 rounded-full' src={user?.photoURL} alt="user" />
+                        </>
                         :
                         <Link to='/login' className='btn'>Login</Link>
                 }

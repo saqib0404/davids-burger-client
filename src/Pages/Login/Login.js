@@ -4,7 +4,7 @@ import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login, googleLogin } = useContext(AuthContext);
     const [wrongPass, setWrongPass] = useState('');
 
     const handleLogin = e => {
@@ -21,6 +21,17 @@ const Login = () => {
             })
             .catch(e => {
                 setWrongPass(e.message);
+                console.log(e);
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(e => {
+                setWrongPass(e.message)
                 console.log(e);
             })
     }
@@ -44,7 +55,7 @@ const Login = () => {
                     <button type='submit' className='btn btn-warning font-semibold mt-4'>Login</button>
 
                     <div className="divider">OR</div>
-                    <button className='btn btn-outline btn-secondary'><FaGoogle></FaGoogle>&nbsp; Login with Google</button>
+                    <button onClick={handleGoogleLogin} className='btn btn-outline btn-secondary'><FaGoogle></FaGoogle>&nbsp; Login with Google</button>
                 </div>
             </form>
         </div>
