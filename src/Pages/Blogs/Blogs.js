@@ -51,11 +51,56 @@ const Blogs = () => {
                     </p>
                 </div>
                 {/* Blog-2 */}
-                <div className="mb-12">
+                <div className="mb-12 border p-4 rounded-lg">
                     <h3 className='text-2xl text-center mb-2'><span className='font-semibold'>Asked:</span> What is JWT, and how does it work?</h3>
                     <p>
                         JWT Stand for Json Web Token. It is an open standard (RFC 7519) for securely transmitting information between parties as JSON object. It is compact, readable and digitally signed using a private key/ or a public key pair by the Identity Provider. <br /> <br />
                         Basically the identity provider(IdP) generates a JWT certifying user identity and Resource server decodes and verifies the authenticity of the token using secret salt / public key.
+                    </p>
+                </div>
+                {/* Blog-3 */}
+                <div className="mb-12">
+                    <h3 className='text-2xl text-center mb-2'><span className='font-semibold'>Asked:</span> What is the difference between javascript and NodeJS?</h3>
+                    <p>
+                        <div className='overflow-x-auto'>
+                            <table className="table w-full">
+
+                                <thead>
+                                    <tr>
+                                        <th>JavaScript</th>
+                                        <th>NodeJS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>Javascript is a programming language that is used for writing scripts on the website.</td>
+                                        <td>NodeJS is a Javascript runtime environment.</td>
+                                    </tr>
+
+                                    <tr className="active">
+                                        <td>Javascript can only be run in the browsers.</td>
+                                        <td>We can run Javascript outside the browser with the help of NodeJS.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>It is basically used on the client-side.</td>
+                                        <td>It is mostly used on the server-side.</td>
+                                    </tr>
+
+                                    <tr className="active">
+                                        <td>Javascript is capable enough to add HTML and play with the DOM. </td>
+                                        <td>Nodejs does not have capability to add HTML tags.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Some of the javascript frameworks are RamdaJS, TypedJS, etc.</td>
+                                        <td>Some of the Nodejs modules are Lodash, express etc.</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
                     </p>
                 </div>
             </div>
