@@ -8,47 +8,47 @@ const Blogs = () => {
                 {/* Blog-1 */}
                 <div className="mb-12">
                     <h3 className='text-2xl text-center mb-2'><span className='font-semibold'>Asked:</span> Difference between SQL and NoSQL?</h3>
-                    <p>
-                        <div className='overflow-x-auto'>
-                            <table className="table w-full">
 
-                                <thead>
-                                    <tr>
-                                        <th>SQL</th>
-                                        <th>NoSQL</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                    <div className='overflow-x-auto'>
+                        <table className="table w-full">
 
-                                    <tr>
-                                        <td>RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS)</td>
-                                        <td>Non-relational or distributed database system.</td>
-                                    </tr>
+                            <thead>
+                                <tr>
+                                    <th>SQL</th>
+                                    <th>NoSQL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                    <tr className="active">
-                                        <td>These databases have fixed or static or predefined schema</td>
-                                        <td>They have dynamic schema</td>
-                                    </tr>
+                                <tr>
+                                    <td>RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS)</td>
+                                    <td>Non-relational or distributed database system.</td>
+                                </tr>
 
-                                    <tr>
-                                        <td>These databases are not suited for hierarchical data storage.</td>
-                                        <td>These databases are best suited for hierarchical data storage.</td>
-                                    </tr>
+                                <tr className="active">
+                                    <td>These databases have fixed or static or predefined schema</td>
+                                    <td>They have dynamic schema</td>
+                                </tr>
 
-                                    <tr className="active">
-                                        <td>Vertically Scalable</td>
-                                        <td>Horizontally scalable</td>
-                                    </tr>
+                                <tr>
+                                    <td>These databases are not suited for hierarchical data storage.</td>
+                                    <td>These databases are best suited for hierarchical data storage.</td>
+                                </tr>
 
-                                    <tr>
-                                        <td>Examples: MySQL, PostgreSQL, Oracle, MS-SQL Server etc</td>
-                                        <td>Examples: MongoDB, GraphQL, HBase, Neo4j, Cassandra etc</td>
-                                    </tr>
+                                <tr className="active">
+                                    <td>Vertically Scalable</td>
+                                    <td>Horizontally scalable</td>
+                                </tr>
 
-                                </tbody>
-                            </table>
-                        </div>
-                    </p>
+                                <tr>
+                                    <td>Examples: MySQL, PostgreSQL, Oracle, MS-SQL Server etc</td>
+                                    <td>Examples: MongoDB, GraphQL, HBase, Neo4j, Cassandra etc</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
                 {/* Blog-2 */}
                 <div className="mb-12 border p-4 rounded-lg">
@@ -61,47 +61,47 @@ const Blogs = () => {
                 {/* Blog-3 */}
                 <div className="mb-12">
                     <h3 className='text-2xl text-center mb-2'><span className='font-semibold'>Asked:</span> What is the difference between javascript and NodeJS?</h3>
-                    <p>
-                        <div className='overflow-x-auto'>
-                            <table className="table w-full">
 
-                                <thead>
-                                    <tr>
-                                        <th>JavaScript</th>
-                                        <th>NodeJS</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                    <div className='overflow-x-auto'>
+                        <table className="table w-full">
 
-                                    <tr>
-                                        <td>Javascript is a programming language that is used for writing scripts on the website.</td>
-                                        <td>NodeJS is a Javascript runtime environment.</td>
-                                    </tr>
+                            <thead>
+                                <tr>
+                                    <th>JavaScript</th>
+                                    <th>NodeJS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                    <tr className="active">
-                                        <td>Javascript can only be run in the browsers.</td>
-                                        <td>We can run Javascript outside the browser with the help of NodeJS.</td>
-                                    </tr>
+                                <tr>
+                                    <td>Javascript is a programming language that is used for writing scripts on the website.</td>
+                                    <td>NodeJS is a Javascript runtime environment.</td>
+                                </tr>
 
-                                    <tr>
-                                        <td>It is basically used on the client-side.</td>
-                                        <td>It is mostly used on the server-side.</td>
-                                    </tr>
+                                <tr className="active">
+                                    <td>Javascript can only be run in the browsers.</td>
+                                    <td>We can run Javascript outside the browser with the help of NodeJS.</td>
+                                </tr>
 
-                                    <tr className="active">
-                                        <td>Javascript is capable enough to add HTML and play with the DOM. </td>
-                                        <td>Nodejs does not have capability to add HTML tags.</td>
-                                    </tr>
+                                <tr>
+                                    <td>It is basically used on the client-side.</td>
+                                    <td>It is mostly used on the server-side.</td>
+                                </tr>
 
-                                    <tr>
-                                        <td>Some of the javascript frameworks are RamdaJS, TypedJS, etc.</td>
-                                        <td>Some of the Nodejs modules are Lodash, express etc.</td>
-                                    </tr>
+                                <tr className="active">
+                                    <td>Javascript is capable enough to add HTML and play with the DOM. </td>
+                                    <td>Nodejs does not have capability to add HTML tags.</td>
+                                </tr>
 
-                                </tbody>
-                            </table>
-                        </div>
-                    </p>
+                                <tr>
+                                    <td>Some of the javascript frameworks are RamdaJS, TypedJS, etc.</td>
+                                    <td>Some of the Nodejs modules are Lodash, express etc.</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
                 {/* Blog-4 */}
                 <div className="mb-12 border p-4 rounded-lg">
