@@ -1,6 +1,6 @@
 .home{
     height: 90vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('../../../assets/banner.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url("https://i.ibb.co/C6Xtt7x/banner.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;

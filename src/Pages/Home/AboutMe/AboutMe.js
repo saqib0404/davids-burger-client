@@ -1,5 +1,4 @@
 import React from 'react';
-import david from '../../../assets/david.jpg'
 
 const AboutMe = () => {
     return (
@@ -16,7 +15,7 @@ const AboutMe = () => {
                     </p>
                 </div>
                 <div>
-                    <img src={david} className='rounded-lg md:ml-4' alt="" />
+                    <img src="https://i.ibb.co/d6tgpP0/david.jpg" className='rounded-lg md:ml-4' alt="" />
                 </div>
             </div>
         </div>
