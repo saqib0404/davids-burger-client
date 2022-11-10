@@ -1,6 +1,7 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { Link } from 'react-router-dom';
 
 const MySingleService = ({ service }) => {
     const { description, image, price, title, _id } = service;
@@ -18,7 +19,7 @@ const MySingleService = ({ service }) => {
                 <p>{description.length > 100 ? description.slice(0, 60) + ' ...' : description}</p>
                 <p>Price: <span className='font-semibold'>{price}</span></p>
                 <div className="card-actions">
-                    <button className="btn btn-warning">View Details</button>
+                    <Link to={`/all-services/${_id}`}><button className="btn btn-warning">View Details</button></Link>
                 </div>
             </div>
         </div>

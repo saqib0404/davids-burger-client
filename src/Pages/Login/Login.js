@@ -1,11 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Context/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const { login, googleLogin } = useContext(AuthContext);
     const [wrongPass, setWrongPass] = useState('');
+    useTitle('Login');
+    const navigate =useNavigate();
+    const location = useLocation();
+    const from = location.state?.form?.pathname || '/';
 
     const handleLogin = e => {
         e.preventDefault();
@@ -16,7 +21,8 @@ const Login = () => {
 
         login(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
+                navigate(from, { replace: true });
                 form.reset();
             })
             .catch(e => {
@@ -28,7 +34,8 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
+                navigate(from, { replace: true });
             })
             .catch(e => {
                 setWrongPass(e.message)
