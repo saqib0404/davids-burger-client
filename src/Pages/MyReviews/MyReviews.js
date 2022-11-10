@@ -1,27 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import ReviewTable from '../ServiceDetails/ReviewTable';
 
 const MyReviews = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [loading, setLoading] = useState(true);
     const [updateReviewId, setupdateReviewId] = useState('')
     const [reviews, setReviews] = useState([]);
+    useTitle('My Reviews')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('user-token')}`
-            }
-        })
-            .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    return logOut()
-                }
-                return res.json()
-            })
+        if (!user?.email) return
+        fetch(`https://devids-burger-server.vercel.app/reviews?email=${user?.email}`)
+            .then(res => res.json())
             .then(data => {
-                setReviews(data)
+                setReviews(data);
+                setLoading(false);
             })
     }, [user?.email, logOut])
 
@@ -29,7 +25,7 @@ const MyReviews = () => {
     const handleDeleteReview = id => {
         const proceed = window.confirm('Do you want to delete this review?')
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://devids-burger-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -50,14 +46,14 @@ const MyReviews = () => {
     const handleEditReview = id => {
         setupdateReviewId(id);
     }
-    const handleUpdateReview = (e, id) => {
+    const handleUpdateReview = e => {
         e.preventDefault();
         const newReviewText = e.target.newReviewText.value;
         const updateMsg = {
             newReviewText
         }
 
-        fetch(`http://localhost:5000/reviews/${updateReviewId}`, {
+        fetch(`https://devids-burger-server.vercel.app/reviews/${updateReviewId}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -93,35 +89,46 @@ const MyReviews = () => {
                 </form>
             </div>
             <Toaster></Toaster>
-            {reviews.length < 1 ?
-                <h2 className='text-4xl mb-2 text-center font-semibold'>No reviews Were Added</h2>
-                :
-                <>
-                    <h2 className='text-4xl mb-2 text-center font-semibold'>My Reviews</h2>
-                    <div className="overflow-x-auto w-full">
-                        <table className="table w-full">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Message</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    reviews.map(review => <ReviewTable
-                                        key={review._id}
-                                        author={true}
-                                        handleDeleteReview={handleDeleteReview}
-                                        handleEditReview={handleEditReview}
-                                        review={review}
-                                    ></ReviewTable>)
-                                }
-                            </tbody>
-                        </table>
+
+            {
+                loading ?
+                    <div className='h-screen flex justify-center items-center flex-col'>
+                        <progress className="progress w-56"></progress> <br />
+                        <h2 className='text-3xl'>Loading..</h2>
                     </div>
-                </>
+                    :
+                    <>
+                        {reviews.length < 1 ?
+                            <h2 className='text-4xl mb-2 text-center font-semibold'>No Reviews Were Added</h2>
+                            :
+                            <>
+                                <h2 className='text-4xl mb-2 text-center font-semibold'>My Reviews</h2>
+                                <div className="overflow-x-auto w-full">
+                                    <table className="table w-full">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Message</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                reviews.map(review => <ReviewTable
+                                                    key={review._id}
+                                                    author={true}
+                                                    handleDeleteReview={handleDeleteReview}
+                                                    handleEditReview={handleEditReview}
+                                                    review={review}
+                                                ></ReviewTable>)
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </>
+                        }
+                    </>
             }
         </div>
     );

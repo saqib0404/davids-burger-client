@@ -4,7 +4,7 @@ export const userAuthToken = user => {
     }
     // console.log(currentUser);
 
-    fetch(('http://localhost:5000/jwt'), {
+    fetch('https://devids-burger-server.vercel.app/jwt', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

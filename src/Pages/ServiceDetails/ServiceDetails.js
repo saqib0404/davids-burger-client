@@ -16,7 +16,7 @@ const ServiceDetails = () => {
     const location = useLocation();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?id=${_id}`)
+        fetch(`https://devids-burger-server.vercel.app/reviews?id=${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -42,16 +42,17 @@ const ServiceDetails = () => {
             reviewText
         }
 
-        fetch(`http://localhost:5000/reviews`, {
+        fetch(`https://devids-burger-server.vercel.app/reviews`, {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
             body: JSON.stringify(review)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
+
                     window.location.reload();
                 }
                 console.log(data);
@@ -116,27 +117,27 @@ const ServiceDetails = () => {
                 <h2 className='text-4xl font-semibold'>Reviews</h2>
                 {
                     reviews.length > 0 ?
-                    <div className="overflow-x-auto w-full">
-                        <table className="table w-full">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Message</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    reviews.map(review => <ReviewTable
-                                        key={review._id}
-                                        service={service}
-                                        review={review}
-                                    ></ReviewTable>)
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                    :
-                    <h4 className='m-4 text-xl '>No reviews were added</h4>
+                        <div className="overflow-x-auto w-full">
+                            <table className="table w-full">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Message</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        reviews.map(review => <ReviewTable
+                                            key={review._id}
+                                            service={service}
+                                            review={review}
+                                        ></ReviewTable>)
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        :
+                        <h4 className='m-4 text-xl '>No reviews were added</h4>
                 }
                 {
                     user?.uid ?

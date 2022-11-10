@@ -7,7 +7,7 @@ const MyServices = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services?sort=3`)
+        fetch(`https://devids-burger-server.vercel.app/services?sort=3`)
             .then(res => res.json())
             .then(data => {
                 setServices(data);

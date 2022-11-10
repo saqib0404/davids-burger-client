@@ -1,7 +1,9 @@
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const AddServices = () => {
+    useTitle('Add Services')
 
     const handleAddService = (e) => {
         e.preventDefault();
@@ -20,7 +22,7 @@ const AddServices = () => {
             image: photoURL
         }
 
-        fetch(`http://localhost:5000/services`, {
+        fetch(`https://devids-burger-server.vercel.app/services`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -31,6 +33,7 @@ const AddServices = () => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success('Service Added')
+                    form.reset();
                 }
                 console.log(data);
             })
