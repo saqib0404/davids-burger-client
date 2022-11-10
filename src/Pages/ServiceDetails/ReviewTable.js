@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ReviewTable = ({ review, author }) => {
-    const { name, photo, reviewText, serviceName, serviceImg, } = review;
-    // console.log(service);
+const ReviewTable = ({ review, handleDeleteReview, author, }) => {
+    const { name, photo, reviewText, serviceName, serviceImg, serviceId } = review;
+
 
     return (
         <tr>
@@ -23,7 +23,7 @@ const ReviewTable = ({ review, author }) => {
                 author &&
                 <>
                     <td><button className='btn btn-success'>Edit</button></td>
-                    <td><button className='btn btn-error'>Delete</button></td>
+                    <td><button onClick={() => handleDeleteReview(serviceId)} className='btn btn-error'>Delete</button></td>
 
                 </>
             }
