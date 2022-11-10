@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReviewTable = ({ review, handleDeleteReview, author, handleEditReview }) => {
-    const { name, photo, reviewText, serviceName, serviceImg, serviceId, _id } = review;
+    const { name, photo, reviewText, serviceName, serviceImg,  _id } = review;
 
 
 

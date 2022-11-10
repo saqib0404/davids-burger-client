@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import { userAuthToken } from '../../api/authToken';
 
 const Login = () => {
     const { login, googleLogin } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const Login = () => {
 
         login(email, password)
             .then(result => {
-                // console.log(result.user);
+                userAuthToken(result.user);
                 navigate(from, { replace: true });
                 form.reset();
             })
@@ -34,7 +35,7 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
-                // console.log(result.user);
+                userAuthToken(result.user);
                 navigate(from, { replace: true });
             })
             .catch(e => {

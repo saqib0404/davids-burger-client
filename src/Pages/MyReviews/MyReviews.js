@@ -4,17 +4,26 @@ import { AuthContext } from '../../Context/AuthProvider';
 import ReviewTable from '../ServiceDetails/ReviewTable';
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [updateReviewId, setupdateReviewId] = useState('')
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('user-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json()
+            })
             .then(data => {
                 setReviews(data)
             })
-    }, [user?.email])
+    }, [user?.email, logOut])
 
     // Handle delete review
     const handleDeleteReview = id => {
@@ -61,12 +70,6 @@ const MyReviews = () => {
                 if (data.matchedCount > 0) {
                     toast.success('Review Updated')
                     window.location.reload();
-                    // const remaining = orders.filter(odr => odr._id !== id);
-                    // const approving = orders.find(odr => odr._id === id)
-                    // approving.status = "Approved";
-
-                    // const newOrder = [approving, ...remaining];
-                    // setOrders(newOrder);
                 }
             })
     }

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { userAuthToken } from '../../api/authToken';
 import { AuthContext } from '../../Context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
@@ -22,8 +23,8 @@ const SignUp = () => {
 
         createUser(email, password)
             .then(result => {
-                // console.log(result.user);
                 handleUserUpdate(name, photoURL)
+                userAuthToken(result.user);
                 navigate(from, { replace: true });
                 form.reset();
             })
