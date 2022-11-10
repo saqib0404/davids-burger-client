@@ -17,7 +17,7 @@ const MySingleService = ({ service }) => {
             <div className="card-body ">
                 <h2 className="card-title">{title}</h2>
                 <p>{description.length > 100 ? description.slice(0, 60) + ' ...' : description}</p>
-                <p>Price: <span className='font-semibold'>{price}</span></p>
+                <p>Price: <span className='font-semibold'>${price}</span></p>
                 <div className="card-actions">
                     <Link to={`/all-services/${_id}`}><button className="btn btn-warning">View Details</button></Link>
                 </div>

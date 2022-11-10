@@ -9,7 +9,7 @@ const SignUp = () => {
     useTitle('Sign Up');
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.form?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';
 
     const handleCreateUser = e => {
         e.preventDefault();

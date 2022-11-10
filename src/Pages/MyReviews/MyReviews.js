@@ -13,29 +13,38 @@ const MyReviews = () => {
                 setReviews(data)
             })
     }, [user?.email])
-    
+
     return (
 
-        <div className=' mb-10  mx-6 md:mx-20 lg:mx-48'>
-            <h2 className='text-4xl font-semibold'>Reviews</h2>
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Message</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            reviews.map(review => <ReviewTable
-                                key={review._id}
-                                review={review}
-                            ></ReviewTable>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+        <div className=' mb-10 mt-5  mx-6 md:mx-20 lg:mx-48 h-screen'>
+            {reviews.length < 1 ?
+                <h2 className='text-4xl mb-2 text-center font-semibold'>No reviews Were Added</h2>
+                :
+                <>
+                    <h2 className='text-4xl mb-2 text-center font-semibold'>My Reviews</h2>
+                    <div className="overflow-x-auto w-full">
+                        <table className="table w-full">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Message</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    reviews.map(review => <ReviewTable
+                                        key={review._id}
+                                        author={true}
+                                        review={review}
+                                    ></ReviewTable>)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    </>
+            }
         </div>
     );
 };

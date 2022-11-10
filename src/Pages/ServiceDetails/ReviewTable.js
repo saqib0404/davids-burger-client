@@ -1,7 +1,8 @@
 import React from 'react';
 
-const ReviewTable = ({ review }) => {
-    const { name, photo, reviewText } = review;
+const ReviewTable = ({ review, author }) => {
+    const { name, photo, reviewText, serviceName, serviceImg, } = review;
+    // console.log(service);
 
     return (
         <tr>
@@ -9,15 +10,23 @@ const ReviewTable = ({ review }) => {
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                            <img src={photo} alt="Avatar Tailwind CSS Component" />
+                            <img src={author ? serviceImg : photo} alt="Avatar Tailwind CSS Component" />
                         </div>
                     </div>
                     <div>
-                        <div className="font-bold">{name}</div>
+                        <div className="font-bold">{author ? serviceName : name}</div>
                     </div>
                 </div>
             </td>
             <td>{reviewText}</td>
+            {
+                author &&
+                <>
+                    <td><button className='btn btn-success'>Edit</button></td>
+                    <td><button className='btn btn-error'>Delete</button></td>
+
+                </>
+            }
         </tr>
     );
 };
