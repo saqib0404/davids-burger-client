@@ -12,7 +12,7 @@ const MySingleService = ({ service }) => {
                 <p>{description.length > 100 ? description.slice(0, 60) + ' ...' : description}</p>
                 <p>Price: <span className='font-semibold'>{price}</span></p>
                 <div className="card-actions">
-                    <button className="btn btn-warning">Buy Now</button>
+                    <button className="btn btn-warning">View Details</button>
                 </div>
             </div>
         </div>

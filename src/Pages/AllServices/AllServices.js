@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import MySingleService from './MySingleService';
+import MySingleService from '../Home/MyServices/MySingleService';
 
-const MyServices = () => {
+const AllServices = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services?sort=3`)
+        fetch(`http://localhost:5000/services`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -23,11 +22,8 @@ const MyServices = () => {
                     service={service}
                 ></MySingleService>)}
             </div>
-            <div className='flex justify-center'>
-                <Link to='/all-services'><button className='btn btn-error btn-outline w-32 font-bold'>See All</button></Link>
-            </div>
         </div>
     );
 };
 
-export default MyServices;
+export default AllServices;
