@@ -11,8 +11,8 @@ const Header = () => {
         {
             user?.uid &&
             <>
-                <li className='font-semibold'><Link>My Reviews</Link></li>
-                <li className='font-semibold'><Link>Add Service</Link></li>
+                <li className='font-semibold'><Link to='myreviews'>My Reviews</Link></li>
+                <li className='font-semibold'><Link to='/addservices'>Add Service</Link></li>
             </>
 
         }
