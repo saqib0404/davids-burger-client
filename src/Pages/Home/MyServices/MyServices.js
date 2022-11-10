@@ -9,7 +9,7 @@ const MyServices = () => {
         fetch(`http://localhost:5000/services?sort=3`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setServices(data);
             })
     }, [])
